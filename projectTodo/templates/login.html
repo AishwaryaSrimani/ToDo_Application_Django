@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Page</title>
+        <link rel = "stylesheet" href="{%static 'css/update.css' %}"/>
+        <link rel="shortcut icon" href="{%static 'images/leaf.ico' %}" type="">
+    </head>
+    <body style=" background-color: Honeydew;">
+        <h1>Login Page</h1>
+        <form action='/login' method='post'>
+            {% csrf_token %}
+            <p><b>Username:</b></p>
+            <p><input type='text' name='username' required/></p>
+            <p><b>Password:</b></p>
+            <p><input type='password' name='password' required/></p>
+            <p><input type='submit' value='Login'/></p>
+            <p><a href = "/register">If you don't have an account Register Here</a></p>
+        </form>
+        <div>
+            {% for message in messages %}
+            <h4 style='color: red; background-color: black; padding: 20px; display: inline; font-size: x-large; font-family: math;'> 
+                {{message}} 
+            </h4>
+            {% endfor %}
+        </div>
+    </body>
+</html>

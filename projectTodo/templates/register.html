@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register Page</title>
+        <link rel="shortcut icon" href="{%static 'images/leaf.ico' %}" type="">
+        <link rel = "stylesheet" href="{%static 'css/update.css' %}"/>
+    </head>
+    <body style=" background-color: Honeydew;">
+        <h1>Register Page</h1>
+        <form action='/register' method='post'>
+            {% csrf_token %}
+            <p><b>Username:</b></p>
+            <p><input type='text' name='username' required/></p>
+            <p><b>Password:</b></p>
+            <p><input type='password1' name='password1' required/></p>
+            <p><b>Confirm Password:</b></p>
+            <p><input type='password2' name='password2' required/></p>
+            <p><a href = "/login"><b>Click for login</b></a></p>
+            <p><input type='submit' value='Register'/></p>
+        </form>
+
+        <div class='container'>
+            {% for message in messages %}
+            <h4 style='color: red; background-color: black; padding: 20px; display: inline; font-size: x-large; font-family: math;'> 
+                {{message}} 
+            </h4>
+            {% endfor %}
+        </div>
+    </body>
+</html>
